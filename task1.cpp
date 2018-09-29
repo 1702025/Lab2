@@ -13,7 +13,7 @@ public:
     }
     void debit(double value)
     {
-      if (balance >value)
+      if (balance >=value)
       {
         balance-=value;
       }
@@ -33,14 +33,14 @@ private:
 int main(int argc, char const *argv[])
 {
   account acct1(45);
-  std::cout<<acct1.getbalance()<<endl;
+  std::cout<<"amount balance is = "<<acct1.getbalance()<<endl;
   acct1.credit(2323);
-  std::cout<<acct1.getbalance()<<endl;
+  std::cout<<"amount balance is = "<<acct1.getbalance()<<endl;
   int value;
   cout<<"enter debit amount : ";
   cin>>value;
   acct1.debit(value);
-  std::cout<<acct1.getbalance()<<endl;
+  std::cout<<"your required amount is = "<<acct1.getbalance()<<endl;
 
   return 0;
 }
