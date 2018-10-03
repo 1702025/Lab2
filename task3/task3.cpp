@@ -10,13 +10,19 @@ public:
         quantity_of_item=quantity;
         price_per_item=price;
       }
-      void settotal()
+      void setInvoiceAmoun()
       {
-        total=quantity_of_item*price_per_item;
-      }
-      void setTotalamunt()
-      {
-        Total_amount+=total;
+        if (quantity_of_item>=0 && price_per_item>=0)
+        {
+          total=quantity_of_item*price_per_item;
+        }
+        else
+        {
+          quantity_of_item = 0;
+          price_per_item = 0;
+          total=0;
+        }
+
       }
       string getname()
       {
@@ -34,16 +40,11 @@ public:
       {
         return price_per_item;
       }
-      double gettotal()
+      double getInvoiceAmoun()
       {
         return total;
       }
-      double getTotal_amount()
-      {
-        return Total_amount;
-      }
 private:
-  double Total_amount;
   double total;
   double price_per_item;
   int quantity_of_item;
@@ -52,39 +53,37 @@ private:
 };
 int main(int argc, char const *argv[])
 {
-invoice a("light ","12qa3w3  ", 4 , 150);
+invoice a("light ","12qa3w3  ", -4 , 150);
+a.setInvoiceAmoun();
 std::cout<<" name       ="<<a.getname()<<endl;
 std::cout<<" description="<<a.getdescription()<<endl;
 std::cout<<" quantity   ="<<a.getquantity()<<endl;
 std::cout<<" price      ="<<a.getprice()<<endl;
-a.settotal();
-std::cout<<" total      ="<<a.gettotal()<<endl;
+std::cout<<" total      ="<<a.getInvoiceAmoun()<<endl;
 cout<<endl;
-invoice b("bulb ","12qtdaw3  ", 6 , 100);
+invoice b("bulb ","12qtdaw3  ", 6 , -120);
+b.setInvoiceAmoun();
 std::cout<<" name       ="<<b.getname()<<endl;
 std::cout<<" description="<<b.getdescription()<<endl;
 std::cout<<" quantity   ="<<b.getquantity()<<endl;
 std::cout<<" price      ="<<b.getprice()<<endl;
-b.settotal();
-std::cout<<" total      ="<<b.gettotal()<<endl;
+std::cout<<" total      ="<<b.getInvoiceAmoun()<<endl;
 cout<<endl;
-invoice c("fan ","12qajhsg53  ", 3 , 600);
+invoice c("fan ","12qajhsg53  ", -3 , -600);
+c.setInvoiceAmoun();
 std::cout<<" name       ="<<c.getname()<<endl;
 std::cout<<" description="<<c.getdescription()<<endl;
 std::cout<<" quantity   ="<<c.getquantity()<<endl;
 std::cout<<" price      = "<<c.getprice()<<endl;
-c.settotal();
-std::cout<<" total      = "<<c.gettotal()<<endl;
+std::cout<<" total      = "<<c.getInvoiceAmoun()<<endl;
 cout<<endl;
 invoice d("mobile ","12q]shw3  ", 8 , 800);
+d.setInvoiceAmoun();
 std::cout<<" name       ="<<d.getname()<<endl;
 std::cout<<" description="<<d.getdescription()<<endl;
 std::cout<<" quantity   ="<<d.getquantity()<<endl;
 std::cout<<" price      = "<<d.getprice()<<endl;
-d.settotal();
-std::cout<<" total      = "<<d.gettotal()<<endl;
-e.setTotal_amunt();
-std::cout<<" total      = "<<e.getTotal_amount()<<endl;
+std::cout<<" total      = "<<d.getInvoiceAmoun()<<endl;
 
 
   return 0;
